@@ -1,6 +1,6 @@
-export const contractAddress = "0x9486426d4cB92B84C07464Da025DA514A38C389A"; // Replace this
+export const contractAddress = "0x101301956e9cE9cD911334a2e63D3D8FC8c72F5A"; // Replace this
 export const contractABI = [
-  // Paste your contract ABI here[
+  // Paste your contract ABI here
   {
     "inputs": [
       {
@@ -475,4 +475,3 @@ export const contractABI = [
     "type": "function"
   }
 ]
-;

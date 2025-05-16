@@ -3,6 +3,32 @@ pragma solidity ^0.8.0;
 
 import "@thirdweb-dev/contracts/eip/ERC721A.sol";
 import "@thirdweb-dev/contracts/extension/interface/IMintableERC721.sol";
+import "@thirdweb-dev/contracts/extension/ContractMetadata.sol";
+contract MyContract is ContractMetadata {
+ 
+    /**
+     *  We store the contract deployer's address only for the purposes of the example
+     *  in the code comment below.
+     *
+     *  Doing this is not necessary to use the `ContractMetadata` extension.
+     */
+    address public deployer;
+ 
+    constructor() {
+        deployer = msg.sender;
+    }
+ 
+    /**
+     *  This function returns who is authorized to set the metadata for your metadata.
+     *
+     *  As an EXAMPLE, we'll only allow the contract deployer to set the contract's metadata.
+     *
+     *  You MUST complete the body of this function to use the `ContractMetadata` extension.
+     */
+    function _canSetContractURI() internal view virtual override returns (bool){
+        return msg.sender == deployer;
+    }
+}
 
 contract StoryNFT is ERC721A, IMintableERC721 {
     // Mapping to store token URIs

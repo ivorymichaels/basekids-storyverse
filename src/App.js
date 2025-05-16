@@ -9,20 +9,21 @@ import ParentalDashboard from "./components/ParentalDashboard";
 
 const queryClient = new QueryClient();
 
-const baseSepolia = {
-  chainId: 84532,
-  rpc: ["https://sepolia.base.org"],
+const baseMainnet = {
+  chainId: 8453,
+  rpc: ["https://mainnet.base.org"],
   nativeCurrency: {
     name: "Ether",
     symbol: "ETH",
     decimals: 18,
   },
-  shortName: "base-sepolia",
-  slug: "base-sepolia",
-  testnet: true,
+  shortName: "base",
+  slug: "base",
+  testnet: false,
   chain: "Base",
-  name: "Base Sepolia",
+  name: "Base Mainnet",
 };
+
 
 function App() {
   const [view, setView] = useState("home");
@@ -31,8 +32,8 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThirdwebProvider
-        activeChain={baseSepolia}
-        supportedChains={[baseSepolia]}
+        activeChain={baseMainnet}
+        supportedChains={[baseMainnet]}
         clientId="b7f22c3174f4edf57c9a1bd03e936dfb" // Replace with your actual Client ID
       >
         <div className="min-h-screen bg-gradient-to-r from-blue-400 to-purple-500">

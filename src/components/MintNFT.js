@@ -3,7 +3,7 @@ import { useAddress, useContract, useMintNFT } from "@thirdweb-dev/react";
 
 export default function MintNFT({ story }) {
   const address = useAddress();
-  const { contract } = useContract("0x9486426d4cB92B84C07464Da025DA514A38C389A"); // Replace with your actual contract address
+  const { contract } = useContract("0x101301956e9cE9cD911334a2e63D3D8FC8c72F5A"); // Replace with your actual contract address
   const { mutate: mintNFT, isLoading, error } = useMintNFT(contract);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
